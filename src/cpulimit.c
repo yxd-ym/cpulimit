@@ -38,7 +38,11 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/time.h>
+#if defined(ANDROID) || defined(__ANDROID__)
+#include <linux/sysctl.h>
+#else /* ANDROID */
 #include <sys/sysctl.h>
+#endif /* ANDROID */
 #include <sys/resource.h>
 #include <sys/types.h>
 #include <sys/wait.h>
